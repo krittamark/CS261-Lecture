@@ -20,6 +20,8 @@ services:
       - 8080:8080
     networks:
       - myNetwork
+    volumes:
+      - ./tomcat-server/webapps/:/usr/local/tomcat/webapps/
 
 networks:
   myNetwork:
