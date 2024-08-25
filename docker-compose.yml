@@ -1,0 +1,25 @@
+services:
+  sql-server:
+    container_name: mssql-server
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    env_file:
+      - path: .env
+        required: true
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${MSSQL_PASSWORD}
+      - MSSQL_PID=Express
+    ports:
+      - 1433:1433
+    networks:
+      - myNetwork
+  web-server:
+    container_name: tomcat-server
+    image: tomcat:10.1-jdk17
+    ports:
+      - 8080:8080
+    networks:
+      - myNetwork
+
+networks:
+  myNetwork:
