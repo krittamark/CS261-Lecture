@@ -17,9 +17,11 @@ services:
     container_name: tomcat-server
     image: tomcat:10.1-jdk17
     ports:
-      - 8080:8080
+      - 8081:8081
     networks:
       - myNetwork
+    command: >
+      /bin/bash -c " sed -i 's/8080/8081/g' /usr/local/tomcat/conf/server.xml && catalina.sh run"
     volumes:
       - ./tomcat-server/webapps/:/usr/local/tomcat/webapps/
 
