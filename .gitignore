@@ -1,3 +1,5 @@
 .env
-tomcat-server/webapps/sample/
+sample/
 6609490062/
+
+package-lock.json
